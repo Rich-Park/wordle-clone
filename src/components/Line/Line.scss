@@ -1,0 +1,10 @@
+.line {
+  display: flex;
+  gap: 7px;
+}
+
+.tile {
+  height: 80px;
+  width: 80px;
+  border: 1px solid var(--text-color);
+}
