@@ -1,7 +1,23 @@
-.header {
-  color: var(--text-color);
-  font-family: var(--font-base);
-  // display: flex;
-  // justify-content: center;
-  margin-bottom: 100px;
+// .header {
+//   color: var(--text-color);
+//   font-family: var(--font-base);
+//   display: flex;
+//   justify-content: center;
+//   margin-bottom: 100px;
+// }
+
+nav {
+  height: 60px;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid grey;
+  display: grid;
+  place-items: center;
+}
+
+nav h1 {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 45px;
 }

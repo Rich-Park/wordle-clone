@@ -3,9 +3,9 @@ import "./Header.scss";
 
 const Header = () => {
   return (
-    <header className="header">
+    <nav className="nav">
       <h1>Wordle</h1>
-    </header>
+    </nav>
   );
 };
 
