@@ -13,12 +13,13 @@ export const AppContext = createContext();
 
 function App() {
   const [grid, setGrid] = useState(GridStart);
+  const [curGuess, setCurGuess] = useState({ row: 0, col: 0 });
 
   return (
     <div className="app">
       <Header />
 
-      <AppContext.Provider value={{ grid, setGrid }}>
+      <AppContext.Provider value={{ grid, setGrid, curGuess, setCurGuess }}>
         <div className="game">
           <Grid />
           <Keyboard />

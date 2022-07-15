@@ -1,5 +1,3 @@
-import React from "react";
-
 // Component imports
 import Key from "../Key/Key";
 
@@ -15,20 +13,20 @@ const Keyboard = () => {
     <div className="keyboard">
       <div className="line-top">
         {keys1.map((key) => {
-          return <Key keyVal={key} />;
+          return <Key keyVal={key} key={`line-top-${key}`} />;
         })}
       </div>
       <div className="line-middle">
         {keys2.map((key) => {
-          return <Key keyVal={key} />;
+          return <Key keyVal={key} key={`line-middle-${key}`} />;
         })}
       </div>
       <div className="line-bottom">
-        <Key keyVal={"Enter"} bigKey />
+        <Key keyVal={"ENTER"} bigKey />
         {keys3.map((key) => {
-          return <Key keyVal={key} />;
+          return <Key keyVal={key} key={`line-bottom-${key}`} />;
         })}
-        <Key keyVal={"Delete"} bigKey />
+        <Key keyVal={"DELETE"} bigKey />
       </div>
     </div>
   );

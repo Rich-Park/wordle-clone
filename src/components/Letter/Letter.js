@@ -5,9 +5,9 @@ import { AppContext } from "../../App";
 // Style imports
 import "./Letter.scss";
 
-const Letter = ({ curRow, letterPos }) => {
+const Letter = ({ row, col }) => {
   const { grid } = useContext(AppContext);
-  const letter = grid[curRow][letterPos];
+  const letter = grid[row][col];
   return <div className="letter">{letter}</div>;
 };
 
