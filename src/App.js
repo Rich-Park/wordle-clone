@@ -16,7 +16,9 @@ function App() {
   const [grid, setGrid] = useState(EmptyGrid);
   const [curGuess, setCurGuess] = useState({ row: 0, col: 0 });
 
-  // enter guess
+  const CORRECT_WORD = "RIGHT";
+
+  // ENTER GUESS
   const onEnter = () => {
     if (curGuess.col === 5) {
       setCurGuess({ row: curGuess.row + 1, col: 0 });
@@ -25,8 +27,8 @@ function App() {
     }
   };
 
-  // delete letter
-  const onDeleteLetter = () => {
+  // DELETE LETTER
+  const deleteLetter = () => {
     if (curGuess.col === 0) {
       alert("Cannot delete nothing!");
     } else {
@@ -37,8 +39,8 @@ function App() {
     }
   };
 
-  // update grid with selected letter
-  const onSelectLetter = (keyVal) => {
+  // SELECT LETTER
+  const selectLetter = (keyVal) => {
     if (curGuess.col <= 4) {
       const newGrid = [...grid];
       newGrid[curGuess.row][curGuess.col] = keyVal;
@@ -57,9 +59,10 @@ function App() {
           setGrid,
           curGuess,
           setCurGuess,
-          onSelectLetter,
-          onDeleteLetter,
+          selectLetter,
+          deleteLetter,
           onEnter,
+          CORRECT_WORD,
         }}
       >
         <div className="game">

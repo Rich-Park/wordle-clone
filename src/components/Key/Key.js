@@ -4,24 +4,22 @@ import { AppContext } from "../../App";
 // Style imports
 import "./Key.scss";
 
-import React from "react";
-
 const Key = ({ keyVal, bigKey }) => {
-  const { onSelectLetter, onDeleteLetter, onEnter } = useContext(AppContext);
+  const { selectLetter, deleteLetter, onEnter } = useContext(AppContext);
 
-  // Clicking on keyboard
-  const selectLetter = () => {
+  // CLICKING KEYBOARD LOGIC
+  const clickLetter = () => {
     if (keyVal === "ENTER") {
       onEnter();
     } else if (keyVal === "DELETE") {
-      onDeleteLetter();
+      deleteLetter();
     } else {
-      onSelectLetter(keyVal);
+      selectLetter(keyVal);
     }
   };
 
   return (
-    <div className="key" id={bigKey && "big"} onClick={selectLetter}>
+    <div className="key" id={bigKey && "big"} onClick={clickLetter}>
       {keyVal}
     </div>
   );
