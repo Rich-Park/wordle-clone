@@ -104,8 +104,10 @@ function App() {
           setGameOver,
         }}
       >
-        <div className="game">
+        <div className="grid-wrapper">
           <Grid />
+        </div>
+        <div className="keyboard-wrapper">
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
       </AppContext.Provider>
