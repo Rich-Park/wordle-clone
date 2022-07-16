@@ -4,7 +4,7 @@ import { AppContext } from "../../App";
 // Style imports
 import "./Key.scss";
 
-const Key = ({ keyVal, bigKey }) => {
+const Key = ({ keyVal, bigKey, disabled }) => {
   const { selectLetter, deleteLetter, onEnter } = useContext(AppContext);
 
   // CLICKING KEYBOARD LOGIC
@@ -19,7 +19,11 @@ const Key = ({ keyVal, bigKey }) => {
   };
 
   return (
-    <div className="key" id={bigKey && "big"} onClick={clickLetter}>
+    <div
+      className="key"
+      id={bigKey ? "big" : disabled && "disabled"}
+      onClick={clickLetter}
+    >
       {keyVal}
     </div>
   );

@@ -1,5 +1,3 @@
-// import { useState } from "react";
-
 // Component imports
 import Letter from "../Letter/Letter";
 

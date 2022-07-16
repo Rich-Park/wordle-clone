@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 
 // Component imports
 import Header from "./components/Header/Header";
@@ -8,22 +8,47 @@ import Keyboard from "./components/Keyboard/Keyboard";
 // Style imports
 import "./App.scss";
 
-import { EmptyGrid } from "./startingGrid";
+import { EmptyGrid, generateWordSet } from "./startingGrid";
 
 export const AppContext = createContext();
 
 function App() {
   const [grid, setGrid] = useState(EmptyGrid);
   const [curGuess, setCurGuess] = useState({ row: 0, col: 0 });
+  const [wordSet, setWordSet] = useState(new Set());
+  const [disabledLetters, setDisabledLetters] = useState([]);
 
   const CORRECT_WORD = "RIGHT";
+
+  // GET WORDSET
+  useEffect(() => {
+    generateWordSet().then((words) => {
+      console.log(words);
+      setWordSet(words.wordSet);
+    });
+  }, []);
 
   // ENTER GUESS
   const onEnter = () => {
     if (curGuess.col === 5) {
-      setCurGuess({ row: curGuess.row + 1, col: 0 });
+      let curWord = "";
+      for (let i = 0; i < 5; i++) {
+        curWord += grid[curGuess.row][i];
+      }
+
+      // check if corect word
+      if (curWord === CORRECT_WORD) {
+        alert("Congratulations!");
+      }
+
+      // check if valid word
+      if (wordSet.has(curWord.toLowerCase())) {
+        setCurGuess({ row: curGuess.row + 1, col: 0 });
+      } else {
+        alert("Must input valid word!");
+      }
     } else {
-      alert("Must input valid word!");
+      alert("Must have five letters!");
     }
   };
 
@@ -63,6 +88,8 @@ function App() {
           deleteLetter,
           onEnter,
           CORRECT_WORD,
+          disabledLetters,
+          setDisabledLetters,
         }}
       >
         <div className="game">
