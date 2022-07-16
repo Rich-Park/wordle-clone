@@ -3,8 +3,9 @@
   height: 100%;
   border: 1px solid grey;
   margin: 5px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 30px;
   font-weight: bolder;
   color: white;

@@ -7,20 +7,16 @@ import "./Key.scss";
 import React from "react";
 
 const Key = ({ keyVal, bigKey }) => {
-  const { grid, setGrid, curGuess, setCurGuess } = useContext(AppContext);
+  const { onSelectLetter, onDeleteLetter, onEnter } = useContext(AppContext);
 
+  // Clicking on keyboard
   const selectLetter = () => {
-    if (keyVal === "ENTER" && curGuess.col === 5) {
-      setCurGuess({ row: curGuess.row + 1, col: 0 });
+    if (keyVal === "ENTER") {
+      onEnter();
+    } else if (keyVal === "DELETE") {
+      onDeleteLetter();
     } else {
-      // can only input letters if position is 0 to 4
-      if (keyVal === "ENTER") return;
-      if (curGuess.col <= 4) {
-        const newGrid = [...grid];
-        newGrid[curGuess.row][curGuess.col] = keyVal;
-        setGrid(newGrid);
-        setCurGuess({ ...curGuess, col: curGuess.col + 1 });
-      }
+      onSelectLetter(keyVal);
     }
   };
 

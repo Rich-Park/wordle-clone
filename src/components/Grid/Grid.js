@@ -1,6 +1,6 @@
 // import { useState } from "react";
 
-// Component Imports
+// Component imports
 import Letter from "../Letter/Letter";
 
 // Style imports

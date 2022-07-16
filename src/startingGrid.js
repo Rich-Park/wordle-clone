@@ -1,4 +1,4 @@
-export const GridStart = [
+export const EmptyGrid = [
   ["", "", "", "", ""],
   ["", "", "", "", ""],
   ["", "", "", "", ""],
