@@ -4,6 +4,7 @@ import { useState, useEffect, createContext } from "react";
 import Header from "./components/Header/Header";
 import Grid from "./components/Grid/Grid";
 import Keyboard from "./components/Keyboard/Keyboard";
+import GameOver from "./components/GameOver/GameOver";
 
 // Style imports
 import "./App.scss";
@@ -17,14 +18,17 @@ function App() {
   const [curGuess, setCurGuess] = useState({ row: 0, col: 0 });
   const [wordSet, setWordSet] = useState(new Set());
   const [disabledLetters, setDisabledLetters] = useState([]);
+  const [randomWord, setRandomWord] = useState("");
+  const [gameOver, setGameOver] = useState({
+    gameOver: false,
+    guessedWord: false,
+  });
 
-  const CORRECT_WORD = "RIGHT";
-
-  // GET WORDSET
+  // GET WORDSET and set random word
   useEffect(() => {
     generateWordSet().then((words) => {
-      console.log(words);
       setWordSet(words.wordSet);
+      setRandomWord(words.randomWord.toUpperCase());
     });
   }, []);
 
@@ -36,16 +40,22 @@ function App() {
         curWord += grid[curGuess.row][i];
       }
 
-      // check if corect word
-      if (curWord === CORRECT_WORD) {
-        alert("Congratulations!");
-      }
-
       // check if valid word
       if (wordSet.has(curWord.toLowerCase())) {
         setCurGuess({ row: curGuess.row + 1, col: 0 });
       } else {
         alert("Must input valid word!");
+      }
+
+      // check for game over
+      if (curWord === randomWord) {
+        setGameOver({ gameOver: true, guessedWord: true });
+        return;
+      }
+
+      // ran out of guesses
+      if (curGuess.row === 5) {
+        setGameOver({ gameOver: true, guessedWord: false });
       }
     } else {
       alert("Must have five letters!");
@@ -87,14 +97,16 @@ function App() {
           selectLetter,
           deleteLetter,
           onEnter,
-          CORRECT_WORD,
+          randomWord,
           disabledLetters,
           setDisabledLetters,
+          gameOver,
+          setGameOver,
         }}
       >
         <div className="game">
           <Grid />
-          <Keyboard />
+          {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
       </AppContext.Provider>
     </div>
