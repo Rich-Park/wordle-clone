@@ -64,9 +64,7 @@ function App() {
 
   // DELETE LETTER
   const deleteLetter = () => {
-    if (curGuess.col === 0) {
-      alert("Cannot delete nothing!");
-    } else {
+    if (curGuess.col !== 0) {
       const newGrid = [...grid];
       newGrid[curGuess.row][curGuess.col - 1] = "";
       setGrid(newGrid);
