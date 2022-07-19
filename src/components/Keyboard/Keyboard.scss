@@ -1,25 +1,23 @@
 .keyboard {
   .line-top {
-    flex: 33%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    margin: 5px;
+    margin: 0 auto 6px;
   }
 
   .line-middle {
-    flex: 33%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    margin: 5px;
+    margin: 0 auto 6px;
   }
 
   .line-bottom {
-    flex: 33%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    margin: 5px;
+    margin: 0 auto 6px;
+  }
+
+  .spacer {
+    flex: 0.5;
   }
 }

@@ -65,6 +65,7 @@ const Keyboard = () => {
         })}
       </div>
       <div className="line-middle">
+        <div className="spacer" />
         {keys2.map((key) => {
           return (
             <Key
@@ -74,6 +75,7 @@ const Keyboard = () => {
             />
           );
         })}
+        <div className="spacer" />
       </div>
       <div className="line-bottom">
         <Key keyVal={"ENTER"} bigKey />

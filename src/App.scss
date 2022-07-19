@@ -1,22 +1,15 @@
 .app {
-  background-color: #121212;
-  color: white;
-  height: 100vh;
-
-  .grid-wrapper {
+  .game {
+    width: 100%;
+    max-width: 500px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 29px;
-  }
-
-  .keyboard-wrapper {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
+    margin: 0 auto;
   }
 }
 
 body {
   margin: 0;
+  background-color: #121212;
+  color: white;
 }
