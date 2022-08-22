@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { AppContext } from "../../App";
 
+// Style import
+import "./GameOver.scss";
+
 const GameOver = () => {
   const { gameOver, randomWord, curGuess } = useContext(AppContext);
 
