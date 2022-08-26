@@ -16,6 +16,7 @@ const Keyboard = () => {
   const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
   // TYPING LOGIC
+  // eslint-disable-next-line
   const handleKeyboard = useCallback((event) => {
     if (event.key === "Enter") {
       onEnter();

@@ -21,7 +21,7 @@ const Key = ({ keyVal, bigKey, disabled }) => {
   return (
     <div
       className="key"
-      id={bigKey ? "big" : disabled && "disabled"}
+      id={bigKey ? "big" : disabled ? "disabled" : ""}
       onClick={clickLetter}
     >
       {keyVal}

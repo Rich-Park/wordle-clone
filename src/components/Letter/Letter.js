@@ -24,6 +24,7 @@ const Letter = ({ row, col }) => {
     if (letter !== "" && !correct && !almost) {
       setDisabledLetters((prev) => [...prev, letter]);
     }
+    // eslint-disable-next-line
   }, [curGuess.row]);
 
   return (

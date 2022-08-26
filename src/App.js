@@ -24,7 +24,7 @@ function App() {
     guessedWord: false,
   });
 
-  // GET WORDSET and set random word
+  // Get word set and set random word
   useEffect(() => {
     generateWordSet().then((words) => {
       setWordSet(words.wordSet);
