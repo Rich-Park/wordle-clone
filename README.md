@@ -10,4 +10,4 @@ NEXT STEPS:
 
 - Add play again button
 - Filter words relating to Computer Science (e.g., only programming or web development related words)
-- Animations similar to Wordle with my own touch
+- Animations similar to Wordle with my own twist
